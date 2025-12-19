@@ -1,11 +1,17 @@
-<div style="padding: 20px; font-family: sans-serif;">
-    <h1>APP 4 (Backend 53925)</h1>
+<div class="card">
+    <h1>App 4 Backend</h1>
     
-    <input type="text" 
-           [(ngModel)]="nombre" 
-           placeholder="Tu nombre">
-    
-    <button (click)="enviarNombre()">Enviar a Backend 4</button>
-    
-    <p>{{ respuesta }}</p>
+    <div class="input-group">
+        <input type="text" 
+               [(ngModel)]="nombre" 
+               placeholder="Escribe tu nombre aquí...">
+    </div>
+
+    <button (click)="enviarNombre()">
+        Enviar al Backend 🚀
+    </button>
+
+    <div class="response" *ngIf="respuesta">
+        {{ respuesta }}
+    </div>
 </div>
