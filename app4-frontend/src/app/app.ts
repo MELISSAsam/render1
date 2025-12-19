@@ -8,4 +8,4 @@ import { SaludoComponent } from './saludo/saludo';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class AppComponent { } // <--- ASEGÚRATE QUE DIGA AppComponent
+export class AppComponent { } // Cambiado de "App" a "AppComponent"
