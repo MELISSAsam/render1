@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './saludo.html',
   styleUrl: './saludo.css'
 })
-export class SaludoComponent { // Este nombre debe ser exacto
+export class SaludoComponent {
   nombre: string = '';
   respuesta: string = '';
 
