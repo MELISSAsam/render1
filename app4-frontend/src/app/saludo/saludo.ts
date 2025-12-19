@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common'; // Necesario para el *ngIf
 
 @Component({
   selector: 'app-saludo',
@@ -14,8 +14,8 @@ export class SaludoComponent {
   respuesta: string = '';
 
   async enviarNombre() {
-    if (!this.nombre) {
-      this.respuesta = "Por favor, escribe un nombre";
+    if (!this.nombre.trim()) {
+      this.respuesta = "⚠️ Por favor, escribe un nombre.";
       return;
     }
 
@@ -27,10 +27,9 @@ export class SaludoComponent {
       });
       
       const data = await response.json();
-      this.respuesta = data.mensaje;
+      this.respuesta = `✨ ${data.mensaje}`;
     } catch (e) {
-      this.respuesta = "Error al conectar con el Backend 4";
-      console.error(e);
+      this.respuesta = "❌ Error de conexión con el servidor.";
     }
   }
 }
