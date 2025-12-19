@@ -1,12 +1,11 @@
 # --- ETAPA 1: Construcción del Frontend ---
 FROM node:20-alpine AS build-frontend
 WORKDIR /app/frontend
-# Usamos ./ para asegurar que busque en la raíz del repositorio
 COPY ./app4-frontend/package*.json ./
 RUN npm install
 COPY ./app4-frontend/ .
-# Compilamos
-RUN npx ng build --configuration production
+# SOLUCIÓN DEFINITIVA: Desactivamos SSR y Prerender para evitar el error NG0401
+RUN npx ng build --configuration production --ssr false --prerender false
 
 # --- ETAPA 2: Preparación del Backend ---
 FROM node:20-alpine AS build-backend
@@ -21,7 +20,7 @@ RUN apk add --no-cache nginx
 WORKDIR /app
 
 COPY --from=build-backend /app/backend /app/backend
-# Corregido: Si falla el despliegue, verifica si en tu PC la carpeta es 'dist/app4-frontend' sin el '/browser'
+# Al desactivar SSR, los archivos suelen quedar directamente en /dist/app4-frontend/browser
 COPY --from=build-frontend /app/frontend/dist/app4-frontend/browser /usr/share/nginx/html
 COPY ./backend/nginx.conf /etc/nginx/nginx.conf
 
