@@ -1,12 +1,11 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { SaludoComponent } from './saludo/saludo'; // Verifica que la ruta sea correcta
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [SaludoComponent], // Agrega SaludoComponent aquí
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
-  protected readonly title = signal('app4-frontend');
-}
+export class AppComponent { }
