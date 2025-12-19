@@ -1,1 +1,11 @@
-<p>saludo works!</p>
+<div style="padding: 20px; font-family: sans-serif;">
+    <h1>APP 4 (Backend 53925)</h1>
+    
+    <input type="text" 
+           [(ngModel)]="nombre" 
+           placeholder="Tu nombre">
+    
+    <button (click)="enviarNombre()">Enviar a Backend 4</button>
+    
+    <p>{{ respuesta }}</p>
+</div>
