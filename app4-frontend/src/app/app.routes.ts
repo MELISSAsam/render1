@@ -1,8 +1,6 @@
-import { RenderMode, ServerRoute } from '@angular/ssr';
+import { Routes } from '@angular/router';
+import { SaludoComponent } from './saludo/saludo';
 
-export const serverRoutes: ServerRoute[] = [
-  {
-    path: '**', // Aplica a todas las rutas, incluyendo la raíz
-    renderMode: RenderMode.Prerender
-  }
+export const routes: Routes = [
+  { path: '', component: SaludoComponent }
 ];
