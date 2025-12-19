@@ -1,18 +1,7 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app';
+import { config } from './app/app.config.server';
 
-@Component({
-  selector: 'app-saludo',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './saludo.html',
-  styleUrl: './saludo.css'
-})
-export class SaludoComponent { // Este nombre debe ser exacto
-  nombre: string = '';
-  respuesta: string = '';
+const bootstrap = () => bootstrapApplication(AppComponent, config);
 
-  enviarNombre() {
-    this.respuesta = `Hola ${this.nombre}, ¡el frontend está conectado!`;
-  }
-}
+export default bootstrap;
