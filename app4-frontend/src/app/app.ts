@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { SaludoComponent } from './saludo/saludo'; // Verifica que la ruta sea correcta
+import { SaludoComponent } from './saludo/saludo'; 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [SaludoComponent], // Agrega SaludoComponent aquí
+  imports: [SaludoComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class AppComponent { }
+export class AppComponent { } // <--- ASEGÚRATE QUE DIGA AppComponent
