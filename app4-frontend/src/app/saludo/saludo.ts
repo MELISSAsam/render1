@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-saludo',
-  imports: [],
+  standalone: true,
+  imports: [FormsModule],
   templateUrl: './saludo.html',
-  styleUrl: './saludo.css',
+  styleUrl: './saludo.css'
 })
-export class Saludo {
+export class SaludoComponent { // Este nombre debe ser exacto
+  nombre: string = '';
+  respuesta: string = '';
 
+  enviarNombre() {
+    this.respuesta = `Hola ${this.nombre}, ¡el frontend está conectado!`;
+  }
 }
