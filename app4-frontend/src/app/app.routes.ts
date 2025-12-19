@@ -1,7 +1,8 @@
-import { Routes } from '@angular/router';
-import { SaludoComponent } from './saludo/saludo';
+import { RenderMode, ServerRoute } from '@angular/ssr';
 
-export const routes: Routes = [
-  { path: '', component: SaludoComponent }, // Carga el formulario al inicio
-  { path: '**', redirectTo: '' }            // Evita errores de ruta no encontrada
+export const serverRoutes: ServerRoute[] = [
+  {
+    path: '**', // Aplica a todas las rutas, incluyendo la raíz
+    renderMode: RenderMode.Prerender
+  }
 ];
